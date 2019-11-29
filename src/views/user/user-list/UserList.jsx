@@ -39,7 +39,7 @@ class UserList extends React.Component {
     populateTable() {
         return !this.state.filterdUsers.length
             ? <tr>
-                <td colSpan="9" className="no-data">No data found</td>
+                <td colSpan="10" className="no-data">No data found</td>
             </tr>
         :
         this.state.filterdUsers.map(user => (

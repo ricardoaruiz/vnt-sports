@@ -1,0 +1,36 @@
+@import '../../assets/style/variables';
+
+.help-bar {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    padding: 0 10px;
+}
+.help-bar-item-title {
+    font-size: 2em;
+    color: $green;
+    margin-bottom: 20px;
+}
+.help-bar-item-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & i {
+        font-size: 4em;
+        margin-right: 20px;
+        color: $green;
+    }
+}
+@media screen and (max-width: 700px) {
+    .help-bar {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+    .help-bar-item {
+        margin-top: 20px;
+    }
+}

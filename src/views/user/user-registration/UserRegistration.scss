@@ -30,6 +30,12 @@
     border: 1px solid $gray;
     border-radius: 4px;
     outline: none;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+
+    &:hover {
+        border: 1.5px solid $light-green;
+        cursor: pointer;
+    }
 
     &:focus {
         border: 1.5px solid $green;
@@ -61,4 +67,11 @@
 
 .registration-actions {
     padding: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .registration-form {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
 }

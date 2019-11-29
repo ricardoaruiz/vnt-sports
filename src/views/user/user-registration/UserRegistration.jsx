@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom'
 
 import PageHeader from '../../../components/page-header/PageHeader';
+import HelpBar from '../../../components/help-bar/HelpBar';
 import Button from '../../../components/button/Button';
 import UserService from '../../../services/UserService';
 
@@ -25,8 +26,7 @@ class UserRegistration extends React.Component {
         this.save = this.save.bind(this);
         this.clean = this.clean.bind(this);
         this.hasData = this.hasData.bind(this);
-        this.hasFullyData = this.hasFullyData.bind(this);
-        
+        this.hasFullyData = this.hasFullyData.bind(this);        
     }
 
     handleInputChange(event) {
@@ -64,7 +64,7 @@ class UserRegistration extends React.Component {
 
     hasFullyData() {
         setTimeout(() => {
-            this.setState({ hasFullyData: this.state.username && this.state.name && this.state.email && this.state.city});  
+            this.setState({ hasFullyData: this.state.username && this.state.name && this.state.email });  
         }, 100);
     }
 
@@ -72,22 +72,23 @@ class UserRegistration extends React.Component {
         return (
             <section className="user-registration">
                 <PageHeader title="Registration"/>
+                <HelpBar />
                 
                 <form className="registration-form">
                     <div>
                         <div className="registration-input-group">
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username">Username *</label>
                             <input className="registration-input-text" type="text" id="username" value={this.state.username} onChange={this.handleInputChange}/>
                             <span className="registration-input-error"></span>
                         </div>
 
                         <div className="registration-input-group">
-                            <label htmlFor="name">Name</label>
+                            <label htmlFor="name">Name *</label>
                             <input className="registration-input-text" type="text" id="name" value={this.state.name} onChange={this.handleInputChange}/>
                             <span className="registration-input-error"></span>
                         </div>
                         <div className="registration-input-group">
-                            <label htmlFor="email">E-mail</label>
+                            <label htmlFor="email">E-mail *</label>
                             <input className="registration-input-text" type="text" id="email" value={this.state.email} onChange={this.handleInputChange}/>
                             <span className="registration-input-error"></span>
                         </div>                         

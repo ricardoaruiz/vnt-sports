@@ -1,0 +1,64 @@
+@import '../../../assets/style/variables';
+
+.user-registration {
+    max-width: $app-width;
+    margin: 0 auto 50px auto;
+}
+
+.registration-form {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: flex-start;
+
+    & > div {
+        display: grid;
+        padding: 10px
+    }
+}
+.registration-input-group {
+    display: grid;
+    align-items: center;
+
+    & label {
+        margin: 10px 0;
+    }
+}
+.registration-input-text {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 1px solid $gray;
+    border-radius: 4px;
+    outline: none;
+
+    &:focus {
+        border: 1.5px solid $green;
+    }
+}
+.registration-input-error {
+    color: $red;
+    font-size: .9em;
+    margin-top: 5px;
+}
+
+.registration-group {
+    display: grid;
+
+    & label {
+        margin: 15px 0;
+    }
+}
+.registration-group_items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0;
+
+    & > div {
+        margin-right: 40px;
+    }
+}
+
+.registration-actions {
+    padding: 10px;
+}

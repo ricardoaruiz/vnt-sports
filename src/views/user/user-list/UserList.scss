@@ -1,0 +1,96 @@
+@import '../../../assets/style/variables';
+
+.user-list {
+    max-width: $app-width;
+    margin: 0 auto 50px auto;
+    padding-right: 10px;
+}
+
+.user-list-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 40px auto;
+
+    & .user-list-header_title {
+        flex: 3
+    }
+
+    & .user-list-header_search {
+
+        & input {
+            width: 100%;
+            border: 1px solid $light-gray;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 1em;
+        }
+
+        flex: 1 1 200px;
+        margin-left: 30px;
+    }
+}
+
+.user-list-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.user-list-table {
+    
+    min-width: 100%;
+    border-collapse: collapse;
+
+    & thead tr {
+        border-left: 1px solid $light-gray;
+        border-right: 1px solid $light-gray;
+    }
+
+    & th {
+        padding: 10px;
+        font-size: .8em;        
+        border-bottom: 1px solid $gray;
+        
+        text-align: left;
+    }
+
+    & tr:nth-child(even) {
+        background: $light-gray;
+    }
+
+    & tbody tr:hover {
+        background: $gray;
+        color: #fff;
+        cursor: pointer;
+
+        & td:last-child i {
+            visibility: visible;
+        }
+    }
+
+    & td {
+        padding: 10px;
+
+        & a {
+            color: $green;
+        }
+
+        & a:hover {
+            color: #fff;
+        }
+    }
+
+}
+.user-list-trash {
+    visibility: hidden;
+    color: $green;
+}
+
+.user-list-actions {
+    padding: 10px;
+}
+.no-data {
+    text-align: center;
+}

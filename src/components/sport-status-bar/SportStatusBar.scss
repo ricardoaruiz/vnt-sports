@@ -1,0 +1,39 @@
+@import '../../assets/style/variables';
+
+.sport-status-bar-background {
+    background: $light-green;
+    padding: 40px 10px;
+}
+.sport-status-bar-container {
+    display: flex;
+    flex-wrap: wrap;    
+    max-width: $app-width;
+    margin: 0 auto;
+}
+.sport-status-bar_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 50px 20px 0;
+
+    & i {
+        font-size: 5em;
+        color: $green;
+        margin-right: 20px;
+    }
+}
+.sport-status-bar_item-content {
+
+    flex: 1 1 150px;
+
+    & p:nth-child(1){
+        font-size: 1em;
+        color: $gray;
+    }
+
+    & p:nth-child(2){
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+
+}

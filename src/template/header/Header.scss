@@ -1,0 +1,55 @@
+@import '../../assets/style/variables';
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+    max-width: $app-width;
+    margin: 0 auto;
+    padding: 40px 10px;
+}
+.header-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .header-logo_box {
+        background: $green;
+        border-radius: 6px;
+        padding: 5px;
+
+        & i {
+            font-size: 2.2em;
+            color: #fff;
+        }
+    }
+
+    & .header-logo_title {
+        font-size: 2em;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+}
+.header-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .header-user_avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 40px;
+        height: 40px;
+        border: 1px solid gray;
+        border-radius: 50%;
+    }
+
+    & .header-user_name {
+        font-size: 1.2em;
+        margin-left: 10px;
+    }
+}

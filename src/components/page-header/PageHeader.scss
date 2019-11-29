@@ -1,0 +1,21 @@
+@import '../../assets/style/variables';
+
+.page-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    grid-gap: 10px;
+    padding: 0 10px;
+}
+.page-header_title {
+    font-size: 3em;
+    margin-right: 20px;
+}
+.page-header_divider {
+    height: 4px;
+    border-radius: 2px;
+    background: $light-gray;   
+}
+.page-header_divider:before {
+    counter-reset: '';
+}

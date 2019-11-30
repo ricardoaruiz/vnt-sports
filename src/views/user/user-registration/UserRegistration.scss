@@ -24,11 +24,8 @@
     }
 }
 .registration-group_items {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
 
     & > div {
         margin-right: 40px;
@@ -43,5 +40,10 @@
     .registration-form {
         grid-template-columns: 1fr;
         grid-gap: 0;
+    }
+    .registration-group_items {
+        grid-template-columns: 0;
+        grid-template-rows: 1fr;
+        align-items: center;
     }
 }

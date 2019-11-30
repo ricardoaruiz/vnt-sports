@@ -175,7 +175,7 @@ class UserRegistration extends React.Component {
                         </div>
 
                         <div className="registration-group">
-                            <label htmlFor="">Days os the week</label>
+                            <label htmlFor="">Days of the week</label>
                             <div className="registration-group_items">
                                 <div>
                                     <Checkbox 

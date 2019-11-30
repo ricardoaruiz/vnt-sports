@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import PageHeader from '../../../components/page-header/PageHeader';
 import HelpBar from '../../../components/help-bar/HelpBar';
 import Button from '../../../components/button/Button';
+import InputText from '../../../components/input-text/InputText';
 import Checkbox from '../../../components/check-box/Checkbox';
 import RadioButton from '../../../components/radio-button/RadioButton';
 import UserService from '../../../services/UserService';
@@ -45,6 +46,14 @@ class UserRegistration extends React.Component {
     }
 
     save() {
+        const user = {
+            username: this.state.username,
+            name: this.state.name,
+            email: this.state.email,
+            city: this.state.city,
+            frequency: this.state.frequency,
+            weekdays: this.state.weekdays
+        }
         UserService.save(this.state)
             .then(() => {
                 this.clean();
@@ -98,29 +107,38 @@ class UserRegistration extends React.Component {
                 
                 <form className="registration-form">
                     <div>
-                        <div className="registration-input-group">
-                            <label htmlFor="username">Username *</label>
-                            <input className="registration-input-text" type="text" id="username" value={this.state.username} onChange={this.handleInputChange}/>
-                            <span className="registration-input-error"></span>
-                        </div>
+                        <InputText
+                            id="username"
+                            label="UserName *"
+                            value={this.state.username}
+                            info="Type the username"
+                            onChange={this.handleInputChange}
+                        />
 
-                        <div className="registration-input-group">
-                            <label htmlFor="name">Name *</label>
-                            <input className="registration-input-text" type="text" id="name" value={this.state.name} onChange={this.handleInputChange}/>
-                            <span className="registration-input-error"></span>
-                        </div>
-                        <div className="registration-input-group">
-                            <label htmlFor="email">E-mail *</label>
-                            <input className="registration-input-text" type="text" id="email" value={this.state.email} onChange={this.handleInputChange}/>
-                            <span className="registration-input-error"></span>
-                        </div>                         
+                        <InputText
+                            id="name"
+                            label="Name *"
+                            value={this.state.name}
+                            info="Type the name"
+                            onChange={this.handleInputChange}
+                        />
+
+                        <InputText
+                            id="email"
+                            label="E-mail *"
+                            value={this.state.email}
+                            info="Type the e-mail"
+                            onChange={this.handleInputChange}
+                        />                        
                     </div>
                     <div>
-                        <div className="registration-input-group">
-                            <label htmlFor="city">City</label>
-                            <input className="registration-input-text" type="text" id="city" value={this.state.city} onChange={this.handleInputChange}/>
-                            <span className="registration-input-error"></span>
-                        </div>
+                        <InputText
+                            id="city"
+                            label="City"
+                            value={this.state.city}
+                            info="Type the city"
+                            onChange={this.handleInputChange}
+                        />                         
 
                         <div className="registration-group">
                             <label htmlFor="">Ride in group?</label>

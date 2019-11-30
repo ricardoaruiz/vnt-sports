@@ -1,0 +1,36 @@
+@import '../../assets/style/variables';
+
+.input-group {
+    display: grid;
+    align-items: center;
+
+    & label {
+        margin: 15px 0 5px 0;
+    }
+}
+.input-text {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 1.1px solid $gray;
+    border-radius: 4px;
+    outline: none;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+
+    &:hover {
+        border: 1.1px solid $green;
+        cursor: pointer;
+    }
+
+    &:focus {
+        border: 1.1px solid $green;
+    }
+}
+.input-info {
+    font-size: .8em;
+    visibility: hidden;
+
+}
+.input-info-visible {
+    visibility: visible;
+}

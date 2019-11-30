@@ -20,14 +20,17 @@
     padding: 10px;
     border-radius: 4px;
     box-shadow: 0 2px 4px $shadow;
+    transition: all 0.5s;
+
+    &:hover {
+        transform: scale(1.03);
+    }
 }
 .posts-item-header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 10px 0;
-    padding-bottom: 20px;
     border-bottom: 1px solid $light-gray;
 
     & i {
@@ -42,7 +45,7 @@
 .posts-item-title {
     font-size: 1.1em;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: $green;
     flex: 1 1 180px;
 }
@@ -50,6 +53,7 @@
     cursor: pointer;
 }
 .posts-item-body {
+    margin-top: 10px;
     font-size: .9em;
 }
 .posts-actions {

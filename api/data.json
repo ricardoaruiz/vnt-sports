@@ -1,0 +1,86 @@
+{
+    "ride" : [
+        {
+            "userId": 1,
+            "value" : "always"
+        },
+        {
+            "userId": 2,
+            "value" : "sometimes"
+        },
+        {
+            "userId": 3,
+            "value" : "never"
+        },
+        {
+            "userId": 4,
+            "value" : "always"
+        },
+        {
+            "userId": 5,
+            "value" : "sometimes"
+        },
+        {
+            "userId": 6,
+            "value" : "never"
+        },
+        {
+            "userId": 7,
+            "value" : "always"
+        },
+        {
+            "userId": 8,
+            "value" : "sometimes"
+        },
+        {
+            "userId": 9,
+            "value" : "never"
+        },
+        {
+            "userId": 10,
+            "value" : "always"
+        }
+    ],
+    "frequency": [
+        {
+            "userId": 1,
+            "weekdays": ["Mon","Wed","Fri"]
+        },
+        {
+            "userId": 2,
+            "weekdays": ["Tue","Thu","Sat"]
+        },
+        {
+            "userId": 3,
+            "weekdays": ["Weekends"]
+        },
+        {
+            "userId": 4,
+            "weekdays": ["Every day"]
+        },
+        {
+            "userId": 5,
+            "weekdays": ["Mon","Wed","Fri"]
+        },
+        {
+            "userId": 6,
+            "weekdays": ["Tue","Thu","Sat"]
+        },
+        {
+            "userId": 7,
+            "weekdays": ["Weekends"]
+        },
+        {
+            "userId": 8,
+            "weekdays": ["Every day"]
+        },
+        {
+            "userId": 9,
+            "weekdays": ["Weekends"]
+        },
+        {
+            "userId": 10,
+            "weekdays": ["Every day"]
+        }
+    ]
+}

@@ -12,6 +12,8 @@ import UserService from '../../../services/UserService';
 import PostService from '../../../services/PostService';
 import AlbumsService from '../../../services/AlbumsService';
 import PhotoService from '../../../services/PhotoService';
+import RideService from '../../../services/RideService';
+import FrequencyService from '../../../services/FrequencyService';
 
 class UserList extends React.Component {
 
@@ -56,8 +58,8 @@ class UserList extends React.Component {
                         {user.address.city}
                     </a>
                 </td>
-                <td></td>
-                <td></td>
+                <td>{user.ride}</td>
+                <td>{user.frequency}</td>
                 <td>{user.posts}</td>
                 <td>{user.albums}</td>
                 <td>{user.photos}</td>
@@ -122,12 +124,16 @@ class UserList extends React.Component {
             UserService.listAll(),
             PostService.listAll(),
             AlbumsService.listAll(),
-            PhotoService.listAll()
+            PhotoService.listAll(),
+            RideService.listAll(),
+            FrequencyService.listAll()
         ]).then(results => {
             const users = results[0].data;
             const posts = results[1].data;
             const albums = results[2].data;
             const photos = results[3].data;
+            const ride = results[4].data;
+            const frequency = results[5].data;
 
             const mappedUsers = users.map(user => {
 
@@ -143,7 +149,9 @@ class UserList extends React.Component {
                     ...user,
                     posts: posts.filter(post => post.userId === user.id).length,
                     albums: userAlbums.length,
-                    photos: userPhotos.length
+                    photos: userPhotos.length,
+                    ride: ride.find(r => r.userId === user.id).value,
+                    frequency: frequency.find(f => f.userId === user.id).weekdays.join(', ')
                  }
             });
 

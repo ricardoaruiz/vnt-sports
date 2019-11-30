@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 import './Posts.scss';
 
+import SpinnerService from '../../components/spinner/SpinnerService';
 import PageHeader from '../../components/page-header/PageHeader';
 import BreadCrumb from '../../components/bread-crumb/BreadCrumb';
 import Button from '../../components/button/Button';
@@ -31,7 +32,7 @@ class Posts extends React.Component {
             : (
                 this.state.posts.map(post => {
                     return (
-                        <div className="posts-item">
+                        <div className="posts-item" key={post.id}>
                             <div className="posts-item-header">
                                 <p className="posts-item-title">{post.title}</p>
                                 <div className="posts-item-icons">
@@ -74,6 +75,7 @@ class Posts extends React.Component {
 
     componentDidMount() {
 
+        SpinnerService.on();
         Promise.all([
             UserService.load(this.state.userId),
             PostService.listByUserId(this.state.userId)    
@@ -83,7 +85,9 @@ class Posts extends React.Component {
             const posts = results[1].data
 
             this.setState({ user: user[0], posts: posts });
-        });
+        })
+        .catch(() => alert('Error on load posts'))
+        .finally(() => SpinnerService.off());
     }
     
 }

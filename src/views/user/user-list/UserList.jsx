@@ -8,6 +8,7 @@ import BreadCrumb from '../../../components/bread-crumb/BreadCrumb';
 import SportStatusBar from '../../../components/sport-status-bar/SportStatusBar';
 import PageHeader from '../../../components/page-header/PageHeader';
 
+import SpinnerService from '../../../components/spinner/SpinnerService';
 import UserService from '../../../services/UserService';
 import PostService from '../../../services/PostService';
 import AlbumsService from '../../../services/AlbumsService';
@@ -56,7 +57,8 @@ class UserList extends React.Component {
                 </td>
                 <td>
                     <a href={`https://www.google.com/maps/search/?api=1&query=${user.address.geo.lat},${user.address.geo.lng}`} 
-                       target="_blank" rel="noopener"
+                       target="_blank" 
+                       rel="noopener noreferrer"
                     >
                         {user.address.city}
                     </a>
@@ -64,7 +66,7 @@ class UserList extends React.Component {
                 <td>{user.ride}</td>
                 <td>{user.frequency}</td>
                 <td>
-                    <a href="#" onClick={(event) => this.gotoPosts(event, user.id)}>{user.posts}</a>
+                    <a href="/" onClick={(event) => this.gotoPosts(event, user.id)}>{user.posts}</a>
                 </td>
                 <td>{user.albums}</td>
                 <td>{user.photos}</td>
@@ -130,6 +132,7 @@ class UserList extends React.Component {
 
     componentDidMount() {
 
+        SpinnerService.on();
         Promise.all([
             UserService.listAll(),
             PostService.listAll(),
@@ -167,7 +170,8 @@ class UserList extends React.Component {
 
             this.setState({ users: mappedUsers, filterdUsers: mappedUsers });
         })
-        .catch(() => alert('Error on load data'));
+        .catch(() => alert('Error on load data'))
+        .finally(() => SpinnerService.off())
     }
 
 }

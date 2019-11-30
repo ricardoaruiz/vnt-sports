@@ -1,0 +1,67 @@
+@import '../../assets/style/variables';
+
+.posts {    
+    max-width: $app-width;
+    margin: 0 auto 50px auto;
+}
+.posts-container {
+    margin: 30px auto 0 auto;
+    padding: 0 10px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+.posts-header {
+    margin: 50px 0
+}
+.posts-item {
+    display: grid;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px $shadow;
+}
+.posts-item-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 10px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $light-gray;
+
+    & i {
+        margin-left: 10px;
+    }
+
+    & i span {
+        margin-left: 2px;
+        font-size: .8em;
+    }
+}
+.posts-item-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: $green;
+    flex: 1 1 180px;
+}
+.posts-item-icons i {
+    cursor: pointer;
+}
+.posts-item-body {
+    font-size: .9em;
+}
+.posts-actions {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .posts-container {
+        grid-template-columns: 1fr;
+    }
+    .posts-item {
+        margin-bottom: 0;
+    }
+}

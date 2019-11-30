@@ -9,6 +9,11 @@ export default class UserService {
             .catch(error => console.error(error));
     }
 
+    static load(userId) {
+        return BaseService.jsonplaceholder.get(`${BASE_URL}?id=${userId}`)
+            .catch(error => console.error(error));
+    }
+
     static save(user) {
         return BaseService.jsonplaceholder.post(BASE_URL, user)
             .catch(error => console.error(error));

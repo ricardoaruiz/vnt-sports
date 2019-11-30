@@ -27,6 +27,7 @@ class UserList extends React.Component {
         }
 
         this.hangleSearchTerm = this.hangleSearchTerm.bind(this);
+        this.gotoPosts = this.gotoPosts.bind(this);
     }
 
     hangleSearchTerm(event) {
@@ -62,7 +63,9 @@ class UserList extends React.Component {
                 </td>
                 <td>{user.ride}</td>
                 <td>{user.frequency}</td>
-                <td>{user.posts}</td>
+                <td>
+                    <a href="#" onClick={(event) => this.gotoPosts(event, user.id)}>{user.posts}</a>
+                </td>
                 <td>{user.albums}</td>
                 <td>{user.photos}</td>
                 <td>
@@ -70,6 +73,11 @@ class UserList extends React.Component {
                 </td>                
             </tr>
         ))
+    }
+
+    gotoPosts(event, userId) {
+        event.preventDefault();
+        this.props.history.push(`/posts/${userId}`);
     }
 
     render() {

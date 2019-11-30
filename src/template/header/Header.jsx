@@ -1,7 +1,10 @@
 import React from 'react';
 import './Header.scss';
 
-export default props => {
+const Header = props => {
+
+    Header.displayName = 'Header'
+
     return (
         <header className="header">
             <div className="header-logo">
@@ -17,3 +20,5 @@ export default props => {
         </header>
     )
 }
+
+export default Header;

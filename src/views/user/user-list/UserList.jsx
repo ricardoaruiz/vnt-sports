@@ -17,6 +17,8 @@ import FrequencyService from '../../../services/FrequencyService';
 
 class UserList extends React.Component {
 
+    static displayName = 'UserList';
+
     constructor(props) {
         super(props);
         this.state = {
@@ -156,7 +158,8 @@ class UserList extends React.Component {
             });
 
             this.setState({ users: mappedUsers, filterdUsers: mappedUsers });
-        });
+        })
+        .catch(() => alert('Error on load data'));
     }
 
 }

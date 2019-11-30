@@ -2,7 +2,10 @@ import React from 'react';
 
 import './BreadCrumb.scss';
 
-export default props => {
+const BreadCrumb = props => {
+
+    BreadCrumb.displayName = 'BreadCrumb';
+
     return (
         <div className="breadcrumb-background">
             <div className="breadcrumb-container">
@@ -17,3 +20,5 @@ export default props => {
         </div>
     )
 }
+
+export default BreadCrumb;

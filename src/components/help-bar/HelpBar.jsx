@@ -2,41 +2,48 @@ import React from 'react';
 
 import './HelpBar.scss'
 
-export default props => (
-    <section>
-        <div className="help-bar">
-            <div className="help-bar-item">
-                <p className="help-bar-item-title">Need Help?</p>
-                <div className="help-bar-item-description">
-                    <i className="fa fa-life-ring"></i>
-                    <p>Lorem ipsum dolor sit amet, consectetur
-                       adipisicing elit, sed do eiusmod tempor
-                       incididunt ut labore et dolore magna aliqua.
-                    </p>
-                </div>
-            </div>
+const HelpBar = props => {
 
-            <div className="help-bar-item">
-                <p className="help-bar-item-title">Why register</p>
-                <div className="help-bar-item-description">
-                    <i className="fa fa-heartbeat"></i>
-                    <p>Lorem ipsum dolor sit amet, consectetur
-                       adipisicing elit, sed do eiusmod tempor
-                       incididunt ut labore et dolore magna aliqua.
-                    </p>
-                </div>
-            </div>
+    HelpBar.displayName = 'HelpBar';
 
-            <div className="help-bar-item">
-                <p className="help-bar-item-title">What people are saying...</p>
-                <div className="help-bar-item-description">
-                    <i className="fa fa-smile-o"></i>
-                    <p>Lorem ipsum dolor sit amet, consectetur
-                       adipisicing elit, sed do eiusmod tempor
-                       incididunt ut labore et dolore magna aliqua.
-                    </p>
+    return (
+        <section>
+            <div className="help-bar">
+                <div className="help-bar-item">
+                    <p className="help-bar-item-title">Need Help?</p>
+                    <div className="help-bar-item-description">
+                        <i className="fa fa-life-ring"></i>
+                        <p>Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
                 </div>
-            </div>                        
-        </div>
-    </section>
-)
+
+                <div className="help-bar-item">
+                    <p className="help-bar-item-title">Why register</p>
+                    <div className="help-bar-item-description">
+                        <i className="fa fa-heartbeat"></i>
+                        <p>Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="help-bar-item">
+                    <p className="help-bar-item-title">What people are saying...</p>
+                    <div className="help-bar-item-description">
+                        <i className="fa fa-smile-o"></i>
+                        <p>Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                </div>                        
+            </div>
+        </section>
+    )
+}
+
+export default HelpBar;

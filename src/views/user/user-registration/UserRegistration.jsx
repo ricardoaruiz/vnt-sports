@@ -4,11 +4,15 @@ import { withRouter } from 'react-router-dom'
 import PageHeader from '../../../components/page-header/PageHeader';
 import HelpBar from '../../../components/help-bar/HelpBar';
 import Button from '../../../components/button/Button';
+import Checkbox from '../../../components/check-box/Checkbox';
+import RadioButton from '../../../components/radio-button/RadioButton';
 import UserService from '../../../services/UserService';
 
 import './UserRegistration.scss';
 
 class UserRegistration extends React.Component {
+    
+    static displayName = 'UserRegistration';
 
     constructor(props) {
         super(props);
@@ -18,6 +22,8 @@ class UserRegistration extends React.Component {
             name: '',
             email: '',
             city: '',
+            frequency: 'always',
+            weekdays: [],
             hasData: false,
             hasFullyData: false
         }
@@ -26,7 +32,9 @@ class UserRegistration extends React.Component {
         this.save = this.save.bind(this);
         this.clean = this.clean.bind(this);
         this.hasData = this.hasData.bind(this);
-        this.hasFullyData = this.hasFullyData.bind(this);        
+        this.hasFullyData = this.hasFullyData.bind(this);
+        this.handleRadioButtonChange = this.handleRadioButtonChange.bind(this);
+        this.hangleCheckboxChange = this.hangleCheckboxChange.bind(this);
     }
 
     handleInputChange(event) {
@@ -68,6 +76,20 @@ class UserRegistration extends React.Component {
         }, 100);
     }
 
+    handleRadioButtonChange(event) {
+        this.setState({ frequency: event.target.value });
+    }
+    
+    hangleCheckboxChange(event) {
+        if (!event.state) {
+            this.setState({ weekdays: [ ...this.state.weekdays, event.value ] })    
+        } else {
+            const weekdays = [ ...this.state.weekdays ];
+            weekdays.splice(weekdays.indexOf(event.value), 1)
+            this.setState({ weekdays: weekdays })    
+        }
+    }
+
     render() {
         return (
             <section className="user-registration">
@@ -104,13 +126,32 @@ class UserRegistration extends React.Component {
                             <label htmlFor="">Ride in group?</label>
                             <div className="registration-group_items">
                                 <div>
-                                    <input type="radio" name="frequency" id="always" value="always"/>Always
+                                    <RadioButton 
+                                        label="Always"
+                                        name="frequency"
+                                        value="always"
+                                        checked={this.state.frequency === 'always'}
+                                        onChange={this.handleRadioButtonChange}
+
+                                    />
                                 </div>
                                 <div>
-                                    <input type="radio" name="frequency" id="sometimes" value="sometimes"/>Sometimes
+                                    <RadioButton 
+                                        label="Sometimes"
+                                        name="frequency"
+                                        value="sometimes"
+                                        checked={this.state.frequency === 'sometimes'}
+                                        onChange={this.handleRadioButtonChange}
+                                    />
                                 </div>
                                 <div>
-                                    <input type="radio" name="frequency" id="never" value="never"/>Never
+                                    <RadioButton 
+                                        label="Never"
+                                        name="frequency"
+                                        value="never"
+                                        checked={this.state.frequency === 'never'}
+                                        onChange={this.handleRadioButtonChange}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -119,25 +160,67 @@ class UserRegistration extends React.Component {
                             <label htmlFor="">Days os the week</label>
                             <div className="registration-group_items">
                                 <div>
-                                    <input type="checkbox" name="Sun" id="sun"/>Sun
+                                    <Checkbox 
+                                        label="Sun" 
+                                        value="sun" 
+                                        name="sun" 
+                                        id="sun"
+                                        onChange={this.hangleCheckboxChange}
+                                    />
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="Mon" id="mon"/>Mon
+                                    <Checkbox 
+                                        label="Mon" 
+                                        value="mon" 
+                                        name="mon" 
+                                        id="mon"
+                                        onChange={this.hangleCheckboxChange}
+                                    />
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="Tue" id="tue"/>Tue
+                                    <Checkbox 
+                                        label="Tue" 
+                                        value="tue" 
+                                        name="tue" 
+                                        id="tue"
+                                        onChange={this.hangleCheckboxChange}
+                                    />                                    
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="Wed" id="wed"/>Wed
+                                    <Checkbox 
+                                        label="Wed" 
+                                        value="wed" 
+                                        name="wed" 
+                                        id="wed"
+                                        onChange={this.hangleCheckboxChange}
+                                    />                                    
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="Thu" id="thu"/>Thu
+                                    <Checkbox 
+                                        label="Thu" 
+                                        value="thu" 
+                                        name="thu" 
+                                        id="thu"
+                                        onChange={this.hangleCheckboxChange}
+                                    />                                            
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="Fri" id="fri"/>Fri
+                                    <Checkbox 
+                                        label="Fri" 
+                                        value="fri" 
+                                        name="fri" 
+                                        id="fri"
+                                        onChange={this.hangleCheckboxChange}
+                                    />
                                 </div>
                                 <div>
-                                    <input type="checkbox" name="Sat" id="sat"/>Sat
+                                    <Checkbox 
+                                        label="Sat" 
+                                        value="sat" 
+                                        name="sat" 
+                                        id="sat"
+                                        onChange={this.hangleCheckboxChange}
+                                    />                                    
                                 </div>
                             </div>
                         </div>

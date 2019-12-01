@@ -9,6 +9,7 @@ import SportStatusBar from '../../../components/sport-status-bar/SportStatusBar'
 import PageHeader from '../../../components/page-header/PageHeader';
 
 import SpinnerService from '../../../components/spinner/SpinnerService';
+import ToastService from '../../../components/toast/ToastService';
 import UserService from '../../../services/UserService';
 import PostService from '../../../services/PostService';
 import AlbumsService from '../../../services/AlbumsService';
@@ -170,7 +171,7 @@ class UserList extends React.Component {
 
             this.setState({ users: mappedUsers, filterdUsers: mappedUsers });
         })
-        .catch(() => alert('Error on load data'))
+        .catch(() => ToastService.error('Error on load data', 'Venturus Sport'))
         .finally(() => SpinnerService.off())
     }
 

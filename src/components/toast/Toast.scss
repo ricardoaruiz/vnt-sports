@@ -1,0 +1,69 @@
+@import '../../assets/style/variables';
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 250px;
+    max-height: 200px;
+    padding: 10px;
+    border-radius: 4px;
+    color: $white;
+    transition: all 0.5s;
+    
+    &.success {
+        background: $green;        
+    }
+
+    &.error {
+        background: $red;
+    }
+
+    &.visible {
+        transform: translate3d(-20px, 0, 0);
+        visibility: visible;
+    }
+
+    &.hide {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+}
+
+.toast-container {
+    display: grid;
+    grid-gap: 20px;
+}
+.toast-header {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    & p {
+        font-size: .9em;
+        font-weight: bold;
+    }
+
+    & .toast-icon {
+        margin-right: 10px;
+    }
+
+    & .toast-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        display: none;
+
+        &.visible {
+            display: block;
+        }
+
+    }
+}
+.toast-content {
+    
+}

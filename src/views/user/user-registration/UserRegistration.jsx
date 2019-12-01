@@ -1,13 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 
+import SpinnerService from '../../../components/spinner/SpinnerService';
+import ToastService from '../../../components/toast/ToastService';
 import PageHeader from '../../../components/page-header/PageHeader';
 import HelpBar from '../../../components/help-bar/HelpBar';
 import Button from '../../../components/button/Button';
 import InputText from '../../../components/input-text/InputText';
 import Checkbox from '../../../components/check-box/Checkbox';
 import RadioButton from '../../../components/radio-button/RadioButton';
-import SpinnerService from '../../../components/spinner/SpinnerService';
 import UserService from '../../../services/UserService';
 
 import './UserRegistration.scss';
@@ -60,9 +61,9 @@ class UserRegistration extends React.Component {
         UserService.save(user)
             .then(() => {
                 this.clean();
-                alert('user created');
+                ToastService.success('User successfully created', 'Venturus Sport')
             })
-            .catch(error => console.log('error', error))
+            .catch(() => ToastService.error('Error on user registration', 'Venturus Sport'))
             .finally(() => SpinnerService.off())
     }
 
